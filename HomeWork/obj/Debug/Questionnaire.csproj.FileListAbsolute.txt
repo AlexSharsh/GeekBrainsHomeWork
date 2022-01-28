@@ -1,0 +1,12 @@
+C:\Work\Programming\UnityVS\GeekBrains\HomeWork\Lesson1\Questionnaire\Questionnaire\bin\Debug\Questionnaire.exe.config
+C:\Work\Programming\UnityVS\GeekBrains\HomeWork\Lesson1\Questionnaire\Questionnaire\obj\Debug\Questionnaire.csprojResolveAssemblyReference.cache
+C:\Work\Programming\UnityVS\GeekBrains\HomeWork\Lesson1\Questionnaire\Questionnaire\bin\Debug\Questionnaire.exe
+C:\Work\Programming\UnityVS\GeekBrains\HomeWork\Lesson1\Questionnaire\Questionnaire\bin\Debug\Questionnaire.pdb
+C:\Work\Programming\UnityVS\GeekBrains\HomeWork\Lesson1\Questionnaire\Questionnaire\obj\Debug\Questionnaire.exe
+C:\Work\Programming\UnityVS\GeekBrains\HomeWork\Lesson1\Questionnaire\Questionnaire\obj\Debug\Questionnaire.pdb
+C:\Work\Programming\UnityVS\HomeWork\Lesson1\Questionnaire\Questionnaire\bin\Debug\Questionnaire.exe.config
+C:\Work\Programming\UnityVS\HomeWork\Lesson1\Questionnaire\Questionnaire\obj\Debug\Questionnaire.exe
+C:\Work\Programming\UnityVS\HomeWork\Lesson1\Questionnaire\Questionnaire\obj\Debug\Questionnaire.pdb
+C:\Work\Programming\UnityVS\HomeWork\Lesson1\Questionnaire\Questionnaire\bin\Debug\Questionnaire.exe
+C:\Work\Programming\UnityVS\HomeWork\Lesson1\Questionnaire\Questionnaire\bin\Debug\Questionnaire.pdb
+C:\Work\Programming\UnityVS\HomeWork\Lesson1\Questionnaire\Questionnaire\obj\Debug\Questionnaire.csprojResolveAssemblyReference.cache
