@@ -58,10 +58,10 @@ namespace Lesson2
             int taskAccess = 7;
 
             Console.WriteLine("СПИСОК ЗАДАНИЙ:");
-            Console.WriteLine("0. Выход");
+            Console.WriteLine("[0]. Выход");
             for (int i = 1; i <= taskAccess; i++)
             {
-                Console.WriteLine($"{i}. Задание {i}");
+                Console.WriteLine($"[{i}]. Задание {i}");
             }
 
             Console.WriteLine("\nВыберите задание: ");

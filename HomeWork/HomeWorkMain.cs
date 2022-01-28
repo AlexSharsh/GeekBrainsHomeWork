@@ -20,9 +20,9 @@ namespace HomeWorkMain
             Helper.PrintStudentInfo();
 
             Console.WriteLine("\nСПИСОК ДОСТУПНЫХ ДОМАШНИХ РАБОТ:");
-            Console.WriteLine("0. Выход из приложения");
-            Console.WriteLine("1. Домашняя работа 1 (проверена преподавателем)");
-            Console.WriteLine("2. Домашняя работа 2");
+            Console.WriteLine("[0]. Выход из приложения");
+            Console.WriteLine("[1]. Домашняя работа 1 (проверена преподавателем)");
+            Console.WriteLine("[2]. Домашняя работа 2");
 
             Console.WriteLine("\n\nВведите номер домашней работы: ");
 
