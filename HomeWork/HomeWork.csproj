@@ -7,8 +7,8 @@
     <ProjectGuid>{C4C43CD0-088D-47D5-8628-3030D8E36B42}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Questionnaire</RootNamespace>
-    <AssemblyName>Questionnaire</AssemblyName>
+    <RootNamespace>HomeWork</RootNamespace>
+    <AssemblyName>HomeWork</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

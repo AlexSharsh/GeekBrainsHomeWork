@@ -49,10 +49,10 @@ namespace Lesson1
             int taskAccess = 5;
 
             Console.WriteLine("СПИСОК ЗАДАНИЙ:");
-            Console.WriteLine("0. Выход");
+            Console.WriteLine("[0]. Выход");
             for(int i = 1; i <= taskAccess; i++)
             {
-                Console.WriteLine($"{i}. Задание {i}");
+                Console.WriteLine($"[{i}]. Задание {i}");
             }
             
             Console.WriteLine("\nВыберите задание: ");
