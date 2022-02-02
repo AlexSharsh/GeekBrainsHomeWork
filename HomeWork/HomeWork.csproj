@@ -43,10 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComplexClass.cs" />
+    <Compile Include="ComplexStruct.cs" />
+    <Compile Include="FractionClass.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="HomeWork1.cs" />
     <Compile Include="HomeWork2.cs" />
     <Compile Include="HomeWorkMain.cs" />
+    <Compile Include="HomeWork3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

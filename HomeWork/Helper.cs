@@ -243,5 +243,68 @@ namespace HomeWorkHelper
             fIsInitRecursiveSumm = false;
             return ValueForRecursiveSumm;
         }
+
+        /// <summary>
+        /// Запрос на ввод числа
+        /// </summary>
+        /// <param name="outStr">Строка для запроса</param>
+        /// <param name="num">Указаетль на переменную</param>
+        public static void InputNumber(String outStr, ref double num)
+        {
+            Console.Write(outStr);
+            while (true)
+            {
+                if (!double.TryParse(Console.ReadLine(), out num))
+                {
+                    Console.WriteLine("Введено некорректное число, повторите ввод");
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Запрос на ввод числа
+        /// </summary>
+        /// <param name="outStr">Строка для запроса</param>
+        /// <param name="num">Указаетль на переменную</param>
+        public static void InputNumber(String outStr, ref int num)
+        {
+            Console.Write(outStr);
+            while (true)
+            {
+                if (!int.TryParse(Console.ReadLine(), out num))
+                {
+                    Console.WriteLine("Введено некорректное число, повторите ввод");
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        public static void InputDenominator(String outStr, ref int den)
+        {
+            Console.Write(outStr);
+            while (true)
+            {
+                if (!int.TryParse(Console.ReadLine(), out den))
+                {
+                    Console.WriteLine("Введено некорректное число, повторите ввод");
+                    
+                }
+                else if (den == 0)
+                {
+                    Console.WriteLine("Знаменатель не может быть равен 0, повторите ввод");
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
     }
 }

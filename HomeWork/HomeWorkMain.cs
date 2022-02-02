@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using HomeWorkHelper;
 using Lesson1;
 using Lesson2;
+using Lesson3;
 
 
 namespace HomeWorkMain
@@ -15,14 +16,15 @@ namespace HomeWorkMain
         public static int GetHomeWork()
         {
             int hw = 0;
-            int hwAccess = 2;
+            int hwAccess = 3;
 
             Helper.PrintStudentInfo();
 
             Console.WriteLine("\nСПИСОК ДОСТУПНЫХ ДОМАШНИХ РАБОТ:");
             Console.WriteLine("[0]. Выход из приложения");
             Console.WriteLine("[1]. Домашняя работа 1 (проверена преподавателем)");
-            Console.WriteLine("[2]. Домашняя работа 2");
+            Console.WriteLine("[2]. Домашняя работа 2 (проверена преподавателем)");
+            Console.WriteLine("[3]. Домашняя работа 3");
 
             Console.WriteLine("\n\nВведите номер домашней работы: ");
 
@@ -64,6 +66,10 @@ namespace HomeWorkMain
 
                     case 2:
                         HomeWork2.Run();
+                        break;
+
+                    case 3:
+                        HomeWork3.Run();
                         break;
 
                     default:
