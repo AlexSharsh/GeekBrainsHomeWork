@@ -247,7 +247,7 @@ namespace HomeWorkHelper
         /// <summary>
         /// Запрос на ввод числа
         /// </summary>
-        /// <param name="outStr">Строка для запроса</param>
+        /// <param name="outStr">Информационная строка</param>
         /// <param name="num">Указаетль на переменную</param>
         public static void InputNumber(String outStr, ref double num)
         {
@@ -268,7 +268,7 @@ namespace HomeWorkHelper
         /// <summary>
         /// Запрос на ввод числа
         /// </summary>
-        /// <param name="outStr">Строка для запроса</param>
+        /// <param name="outStr">Информационная строка</param>
         /// <param name="num">Указаетль на переменную</param>
         public static void InputNumber(String outStr, ref int num)
         {
@@ -286,6 +286,11 @@ namespace HomeWorkHelper
             }
         }
 
+        /// <summary>
+        /// Запрос на ввод делителя
+        /// </summary>
+        /// <param name="outStr">Информационная строка</param>
+        /// <param name="den">Указаетль на переменную</param>
         public static void InputDenominator(String outStr, ref int den)
         {
             Console.Write(outStr);
@@ -305,6 +310,92 @@ namespace HomeWorkHelper
                     break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Заполнение массива случайными числами в заданном диапазоне
+        /// </summary>
+        /// <param name="min">Нижняя граница диапазона</param>
+        /// <param name="max">Верхняя граница диапазона</param>
+        /// <param name="arr">Массив для заполнения</param>
+        public static void RandomFillArray(int min, int max, int[] arr)
+        {
+            Random r = new Random();
+
+            for (int i = 0; i < arr.Length; i ++)
+            {
+                arr[i] = r.Next(min, max);
+            }
+        }
+
+        /// <summary>
+        /// Вывод массива на печать
+        /// </summary>
+        /// <param name="arr">Массив для печати</param>
+        /// <param name="arr">Массив для печати</param>
+        public static void PrintArrayAndHighlight(int[] arr, int div, ConsoleColor color)
+        {
+            ConsoleColor currentColor = Console.ForegroundColor;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (div != 0)
+                {
+                    if(IsIntegerDivision(arr[i], div))
+                    {
+                        Console.ForegroundColor = color;
+                    }
+                }
+                
+                Console.Write($"{arr[i]} ");
+                Console.ForegroundColor = currentColor;
+            }
+
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Проверка делимости числа нацело на div
+        /// </summary>
+        /// <param name="num">Проверяемое число</param>
+        /// <param name="div">Делитель</param>
+        /// <returns></returns>
+        public static bool IsIntegerDivision(int num, int div)
+        {
+            if ((num % div) == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Подстчёт кол-ва пар чисел в массиве, где в паре только одно число делиться на divider
+        /// </summary>
+        /// <param name="arr">Массив для поиска</param>
+        /// <param name="div">Делитель при деление на который ищем пары</param>
+        /// <returns></returns>
+        public static int GetPairs(int[] arr, int div)
+        {
+            int counterPairs = 0;
+            bool fPrev, fNext;
+
+            fPrev = IsIntegerDivision(arr[0], div);
+
+            for (int i = 1; i < (arr.Length - 1); i++)
+            {
+                fNext = IsIntegerDivision(arr[i], div);
+
+                if ((fPrev && !fNext) || (!fPrev && fNext))
+                {
+                    counterPairs++;
+                }
+
+                fPrev = fNext;
+            }
+
+            return counterPairs;
         }
     }
 }
