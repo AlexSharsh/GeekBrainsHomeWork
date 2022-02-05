@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using HomeWorkHelper;
 using HomeWorkStaticClass;
 using HomeWorkArrayClass;
+using HomeWorkArrayClassLib;
 
 namespace Lesson4
 {
@@ -171,6 +172,8 @@ namespace Lesson4
             int arrayStartVal = 10;
             int arrayStep = 5;
 
+            #region a)
+            Console.Write("\nа)РАБОТА ИЗ КЛАССА:\n");
             ArrayClass ac = new ArrayClass(arraySize, arrayStartVal, arrayStep);
             ac.PrintArray();
             Console.Write($"Сумма элементов массива: {ac.Sum}\n");
@@ -182,6 +185,23 @@ namespace Lesson4
             Console.WriteLine("\nУмножение элементов массива на заданное число (3):");
             int[] arгMul = ac.Multi(3);
             Helper.PrintArrayAndHighlight(arгMul, 0, 0);
+            #endregion
+
+            #region б)
+            Console.Write("\n\nб)РАБОТА ИЗ БИБЛИОТЕКИ:\n");
+            ArrayClassLib acl = new ArrayClassLib(arraySize, arrayStartVal, arrayStep);
+            ac.PrintArray();
+            Console.Write($"Сумма элементов массива: {acl.Sum}\n");
+
+            Console.WriteLine("\nИнверсия элементов массива:");
+            int[] aclArrInv = acl.Inverse();
+            Helper.PrintArrayAndHighlight(aclArrInv, 0, 0);
+
+            Console.WriteLine("\nУмножение элементов массива на заданное число (3):");
+            int[] aclArгMul = acl.Multi(3);
+            Helper.PrintArrayAndHighlight(aclArгMul, 0, 0);
+            #endregion
+
 
             Console.WriteLine("\n\n\n" + "ДЛЯ ВЫХОДА ИЗ ЗАДАНИЯ НАЖМИТЕ ЛЮБУЮ КНОПКУ");
             Console.ReadKey();

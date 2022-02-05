@@ -7,7 +7,7 @@ using System.IO;
 
 namespace HomeWorkArrayClassLib
 {
-    internal class ArrayClassLib
+    public class ArrayClassLib
     {
         #region Поля
         private int[] arr;
@@ -172,10 +172,11 @@ namespace HomeWorkArrayClassLib
         /// <returns></returns>
         public int[] Multi(int mul)
         {
-            int[] arrInv = arr;
+            int[] arrInv = new int[arr.Length];
 
             for (int i = 0; i < arrInv.Length; i++)
             {
+                arrInv[i] = arr[i];
                 arrInv[i] *= mul;
             }
 
