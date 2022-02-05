@@ -1,0 +1,4 @@
+C:\Work\Programming\UnityVS\GeekBrainsHomeWork\ArrayClassLib\bin\Debug\ArrayClassLib.dll
+C:\Work\Programming\UnityVS\GeekBrainsHomeWork\ArrayClassLib\bin\Debug\ArrayClassLib.pdb
+C:\Work\Programming\UnityVS\GeekBrainsHomeWork\ArrayClassLib\obj\Debug\ArrayClassLib.dll
+C:\Work\Programming\UnityVS\GeekBrainsHomeWork\ArrayClassLib\obj\Debug\ArrayClassLib.pdb

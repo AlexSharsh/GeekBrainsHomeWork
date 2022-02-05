@@ -7,6 +7,7 @@ using HomeWorkHelper;
 using Lesson1;
 using Lesson2;
 using Lesson3;
+using Lesson4;
 
 
 namespace HomeWorkMain
@@ -16,7 +17,7 @@ namespace HomeWorkMain
         public static int GetHomeWork()
         {
             int hw = 0;
-            int hwAccess = 3;
+            int hwAccess = 4;
 
             Helper.PrintStudentInfo();
 
@@ -25,6 +26,7 @@ namespace HomeWorkMain
             Console.WriteLine("[1]. Домашняя работа 1 (проверена преподавателем)");
             Console.WriteLine("[2]. Домашняя работа 2 (проверена преподавателем)");
             Console.WriteLine("[3]. Домашняя работа 3");
+            Console.WriteLine("[4]. Домашняя работа 4");
 
             Console.WriteLine("\n\nВведите номер домашней работы: ");
 
@@ -70,6 +72,10 @@ namespace HomeWorkMain
 
                     case 3:
                         HomeWork3.Run();
+                        break;
+
+                    case 4:
+                        HomeWork4.Run();
                         break;
 
                     default:
