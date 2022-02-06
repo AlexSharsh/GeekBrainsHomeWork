@@ -204,23 +204,6 @@ namespace HomeWorkHelper
         }
 
         /// <summary>
-        /// Рекурсивный вывода чисел в диапазоне от Head до Tail
-        /// </summary>
-        /// <param name="Head">Начало диапазона</param>
-        /// <param name="Tail">Конец диапазона</param>
-        public static void PrintRange(int Head, int Tail)
-        {
-            Console.Write(Head + " ");
-
-            if (Head == Tail)
-            {
-                return;
-            }
-
-            PrintRange(Head + 1, Tail);
-        }
-
-        /// <summary>
         /// Рекрсивный подсчет суммы чисел в диапазоне  от Head до Tail
         /// </summary>
         /// <param name="Head">Начало диапазона</param>
@@ -329,6 +312,23 @@ namespace HomeWorkHelper
         }
 
         /// <summary>
+        /// Рекурсивный вывода чисел в диапазоне от Head до Tail
+        /// </summary>
+        /// <param name="Head">Начало диапазона</param>
+        /// <param name="Tail">Конец диапазона</param>
+        public static void PrintRange(int Head, int Tail)
+        {
+            Console.Write(Head + " ");
+
+            if (Head == Tail)
+            {
+                return;
+            }
+
+            PrintRange(Head + 1, Tail);
+        }
+
+        /// <summary>
         /// Вывод массива на печать
         /// </summary>
         /// <param name="arr">Массив для печати</param>
@@ -352,6 +352,19 @@ namespace HomeWorkHelper
             }
 
             Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Печать коллекции
+        /// </summary>
+        /// <param name="statistics"></param>
+        public static void PrintDictionary(Dictionary<int, int> statistics)
+        {
+            Console.WriteLine("Значение:\tКол-во вхождений:");
+            foreach (KeyValuePair<int, int> i in statistics)
+            {
+                Console.WriteLine($"\t{i.Key}\t\t\t{i.Value}");
+            }
         }
 
         /// <summary>

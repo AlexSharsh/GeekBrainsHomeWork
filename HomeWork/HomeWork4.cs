@@ -174,7 +174,7 @@ namespace Lesson4
 
             #region a)
             Console.Write("\nа)РАБОТА ИЗ КЛАССА:\n");
-            ArrayClass ac = new ArrayClass(arraySize, arrayStartVal, arrayStep);
+            ArrayClass ac = new ArrayClass(arraySize, arrayStartVal, arrayStep, 0);
             ac.PrintArray();
             Console.Write($"Сумма элементов массива: {ac.Sum}\n");
 
@@ -185,12 +185,14 @@ namespace Lesson4
             Console.WriteLine("\nУмножение элементов массива на заданное число (3):");
             int[] arгMul = ac.Multi(3);
             Helper.PrintArrayAndHighlight(arгMul, 0, 0);
+
+            Console.WriteLine($"\nMaxCount: {ac.MaxCount}");
             #endregion
 
             #region б)
             Console.Write("\n\nб)РАБОТА ИЗ БИБЛИОТЕКИ:\n");
-            ArrayClassLib acl = new ArrayClassLib(arraySize, arrayStartVal, arrayStep);
-            ac.PrintArray();
+            ArrayClassLib acl = new ArrayClassLib(arraySize, arrayStartVal, arrayStep, 0);
+            acl.PrintArray();
             Console.Write($"Сумма элементов массива: {acl.Sum}\n");
 
             Console.WriteLine("\nИнверсия элементов массива:");
@@ -200,6 +202,18 @@ namespace Lesson4
             Console.WriteLine("\nУмножение элементов массива на заданное число (3):");
             int[] aclArгMul = acl.Multi(3);
             Helper.PrintArrayAndHighlight(aclArгMul, 0, 0);
+            #endregion
+
+            #region в)
+            Console.Write("\n\nв)ПОДСЧЁТ:\n");
+            ArrayClass ac2 = new ArrayClass(arraySize, 0, 10, 1);
+            Console.Write("Исходный массив:\t");
+            ac2.PrintArray();
+            int[] arr = ac2.Sort();
+            Console.Write("Отсортированный массив:\t");
+            Helper.PrintArrayAndHighlight(arr, 0, 0);
+            Console.WriteLine($"MaxCount: {ac2.MaxCount}");
+            Helper.PrintDictionary(ac2.GetStatistics());
             #endregion
 
 
