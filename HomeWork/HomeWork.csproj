@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountStruct.cs" />
+    <Compile Include="Array2DClass.cs" />
     <Compile Include="ArrayClass.cs" />
     <Compile Include="ComplexClass.cs" />
     <Compile Include="ComplexStruct.cs" />

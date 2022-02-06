@@ -100,13 +100,13 @@ namespace Lesson3
                         Item++;
                         Console.WriteLine("a):");
                         Console.WriteLine("Введите комплексное число 1:");
-                        Helper.InputNumber("действительная часть: ", ref complex1.re);
-                        Helper.InputNumber("комплексная часть: ", ref complex1.im);
+                        Helper.Input("действительная часть: ", ref complex1.re);
+                        Helper.Input("комплексная часть: ", ref complex1.im);
                         Console.WriteLine($"{complex1}\n");
 
                         Console.WriteLine("Введите комплексное число 2:");
-                        Helper.InputNumber("действительная часть: ", ref complex2.re);
-                        Helper.InputNumber("комплексная часть: ", ref complex2.im);
+                        Helper.Input("действительная часть: ", ref complex2.re);
+                        Helper.Input("комплексная часть: ", ref complex2.im);
                         Console.WriteLine($"{complex2}\n");
 
                         Console.WriteLine($"Сумма комплексных чисел: {(complex1.Plus(complex2))}");
@@ -122,13 +122,13 @@ namespace Lesson3
                         Item++;
                         Console.WriteLine("\nб):");
                         Console.WriteLine("Введите комплексное число 1:");
-                        Helper.InputNumber("действительная часть: ", ref complex1.re);
-                        Helper.InputNumber("комплексная часть: ", ref complex1.im);
+                        Helper.Input("действительная часть: ", ref complex1.re);
+                        Helper.Input("комплексная часть: ", ref complex1.im);
                         Console.WriteLine($"{complex1}\n");
 
                         Console.WriteLine("Введите комплексное число 2:");
-                        Helper.InputNumber("действительная часть: ", ref complex2.re);
-                        Helper.InputNumber("комплексная часть: ", ref complex2.im);
+                        Helper.Input("действительная часть: ", ref complex2.re);
+                        Helper.Input("комплексная часть: ", ref complex2.im);
                         Console.WriteLine($"{complex2}\n");
                         ComplexClass cs1 = new ComplexClass(complex1.re, complex1.im);
                         ComplexClass cs2 = new ComplexClass(complex2.re, complex2.im);
@@ -153,13 +153,13 @@ namespace Lesson3
                         Console.WriteLine("[3]-Умножение");
 
                         Console.WriteLine("\nВведите комплексное число 1:");
-                        Helper.InputNumber("действительная часть: ", ref complex1.re);
-                        Helper.InputNumber("комплексная часть: ", ref complex1.im);
+                        Helper.Input("действительная часть: ", ref complex1.re);
+                        Helper.Input("комплексная часть: ", ref complex1.im);
                         Console.WriteLine($"{complex1}\n");
 
                         Console.WriteLine("Введите комплексное число 2:");
-                        Helper.InputNumber("действительная часть: ", ref complex2.re);
-                        Helper.InputNumber("комплексная часть: ", ref complex2.im);
+                        Helper.Input("действительная часть: ", ref complex2.re);
+                        Helper.Input("комплексная часть: ", ref complex2.im);
                         Console.WriteLine($"{complex2}\n");
                         ComplexClass cs3 = new ComplexClass(complex1.re, complex1.im);
                         ComplexClass cs4 = new ComplexClass(complex2.re, complex2.im);
@@ -168,7 +168,7 @@ namespace Lesson3
 
                         while (true)
                         {
-                            Helper.InputNumber("Выберите действие: ", ref Op);
+                            Helper.Input("Выберите действие: ", ref Op);
 
                             switch (Op)
                             {
@@ -277,13 +277,13 @@ namespace Lesson3
             int num = 0, den = 0;
 
             Console.WriteLine("\nВведите дробь 1:");
-            Helper.InputNumber("числитель: ", ref num); 
+            Helper.Input("числитель: ", ref num); 
             Helper.InputDenominator("знаменатель: ", ref den);
             FractionClass f1 = new FractionClass(num, den);
             Console.WriteLine($"{f1}\n");
 
             Console.WriteLine("\nВведите дробь 2:");
-            Helper.InputNumber("числитель: ", ref num);
+            Helper.Input("числитель: ", ref num);
             Helper.InputDenominator("знаменатель: ", ref den);
             FractionClass f2 = new FractionClass(num, den);
             Console.WriteLine($"{f2}\n");
@@ -293,7 +293,7 @@ namespace Lesson3
 
             while (true)
             {
-                Helper.InputNumber("Выберите действие: ", ref Op);
+                Helper.Input("Выберите действие: ", ref Op);
 
                 switch (Op)
                 {

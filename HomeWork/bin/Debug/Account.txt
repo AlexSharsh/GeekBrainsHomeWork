@@ -1,2 +1,2 @@
 Login:root
-Password:GeekBarains
+Password:GeekBrains

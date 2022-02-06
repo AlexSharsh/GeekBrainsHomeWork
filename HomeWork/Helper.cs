@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using HomeWorkAccountStruct;
 
 namespace HomeWorkHelper
 {
@@ -116,9 +118,77 @@ namespace HomeWorkHelper
         /// <param name="Login">Логин</param>
         /// <param name="Password">Пароль</param>
         /// <returns></returns>
-        public static bool isValidAuthentication(string Login, string Password)
+        public static bool isValidAuthentication(string login, string password)
         {
-            return ((MyLogin.Equals(Login)) && (MyPassword.Equals(Password))) ? true : false;
+            return ((MyLogin.Equals(login)) && (MyPassword.Equals(password))) ? true : false;
+        }
+
+
+        /// <summary>
+        /// Проверка логина и пароля из файла
+        /// </summary>
+        /// <param name="path">Путь к файлу</param>
+        /// <param name="user">Аккаунт пользователя</param>
+        /// <returns></returns>
+        public static int isValidAuthenticationFromFile(string path, AccountStruct user)
+        {
+            if (!File.Exists(path))
+                return -1;
+
+            StreamReader sr = new StreamReader(path);
+            string file = sr.ReadToEnd();
+            sr.Close();
+
+            bool fLogin = StringCheck(file, "Login:", user.Login);
+            bool fPassword = StringCheck(file, "Password:", user.Password);
+
+            if (fLogin & fPassword)
+                return 1;
+
+            return 0;
+        }
+
+        private static bool StringCheck(string sourceStr, string preStr, string searchStr)
+        {
+            int i;
+            int idx = sourceStr.IndexOf(preStr);
+            int counter = 0;
+
+            if(idx >= 0)
+            {
+                for (i = 0; i < searchStr.Length; i++)
+                {
+                    if (sourceStr[idx + preStr.Length + i] == searchStr[i])
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                if (counter == searchStr.Length)
+                {
+                    if((sourceStr.Length - idx - preStr.Length) > counter)
+                    {
+                        if (sourceStr[idx + preStr.Length + i] < 0x20)
+                        {
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        if ((sourceStr.Length - idx - preStr.Length) == counter)
+                        {
+                            return true;
+                        }
+                    }
+                    
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -232,7 +302,7 @@ namespace HomeWorkHelper
         /// </summary>
         /// <param name="outStr">Информационная строка</param>
         /// <param name="num">Указаетль на переменную</param>
-        public static void InputNumber(String outStr, ref double num)
+        public static void Input(String outStr, ref double num)
         {
             Console.Write(outStr);
             while (true)
@@ -253,7 +323,18 @@ namespace HomeWorkHelper
         /// </summary>
         /// <param name="outStr">Информационная строка</param>
         /// <param name="num">Указаетль на переменную</param>
-        public static void InputNumber(String outStr, ref int num)
+        public static void Input(String outStr, out string str)
+        {
+            Console.Write(outStr);
+            str = Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Запрос на ввод числа
+        /// </summary>
+        /// <param name="outStr">Информационная строка</param>
+        /// <param name="num">Указаетль на переменную</param>
+        public static void Input(String outStr, ref int num)
         {
             Console.Write(outStr);
             while (true)
