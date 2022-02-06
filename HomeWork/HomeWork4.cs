@@ -7,6 +7,8 @@ using HomeWorkHelper;
 using HomeWorkStaticClass;
 using HomeWorkArrayClass;
 using HomeWorkArrayClassLib;
+using HomeWorkAccountStruct;
+using HomeWorkArray2DClass;
 
 namespace Lesson4
 {
@@ -174,7 +176,7 @@ namespace Lesson4
 
             #region a)
             Console.Write("\nа)РАБОТА ИЗ КЛАССА:\n");
-            ArrayClass ac = new ArrayClass(arraySize, arrayStartVal, arrayStep);
+            ArrayClass ac = new ArrayClass(arraySize, arrayStartVal, arrayStep, 0);
             ac.PrintArray();
             Console.Write($"Сумма элементов массива: {ac.Sum}\n");
 
@@ -185,12 +187,14 @@ namespace Lesson4
             Console.WriteLine("\nУмножение элементов массива на заданное число (3):");
             int[] arгMul = ac.Multi(3);
             Helper.PrintArrayAndHighlight(arгMul, 0, 0);
+
+            Console.WriteLine($"\nMaxCount: {ac.MaxCount}");
             #endregion
 
             #region б)
             Console.Write("\n\nб)РАБОТА ИЗ БИБЛИОТЕКИ:\n");
-            ArrayClassLib acl = new ArrayClassLib(arraySize, arrayStartVal, arrayStep);
-            ac.PrintArray();
+            ArrayClassLib acl = new ArrayClassLib(arraySize, arrayStartVal, arrayStep, 0);
+            acl.PrintArray();
             Console.Write($"Сумма элементов массива: {acl.Sum}\n");
 
             Console.WriteLine("\nИнверсия элементов массива:");
@@ -200,6 +204,18 @@ namespace Lesson4
             Console.WriteLine("\nУмножение элементов массива на заданное число (3):");
             int[] aclArгMul = acl.Multi(3);
             Helper.PrintArrayAndHighlight(aclArгMul, 0, 0);
+            #endregion
+
+            #region в)
+            Console.Write("\n\nв)ПОДСЧЁТ:\n");
+            ArrayClass ac2 = new ArrayClass(arraySize, 0, 10, 1);
+            Console.Write("Исходный массив:\t");
+            ac2.PrintArray();
+            int[] arr = ac2.Sort();
+            Console.Write("Отсортированный массив:\t");
+            Helper.PrintArrayAndHighlight(arr, 0, 0);
+            Console.WriteLine($"MaxCount: {ac2.MaxCount}");
+            Helper.PrintDictionary(ac2.GetStatistics());
             #endregion
 
 
@@ -219,7 +235,47 @@ namespace Lesson4
             Console.WriteLine("Решить задачу с логинами из урока 2, только логины и пароли считать из файла в массив. ");
             Console.WriteLine("Создайте структуру Account, содержащую Login и Password.\n");
 
+            bool fExit = false;
+            int Counter = 3;
+            string filePath = AppDomain.CurrentDomain.BaseDirectory + "Account.txt";
+            Console.WriteLine($"АУТЕНТИФИКАЦИЯ ПОЛЬЗОВАТЕЛЯ (кол-во попыток {Counter}):");
+            AccountStruct user;
 
+            do
+            {
+                Counter--;
+                Helper.Input("Логин: ", out user.Login);
+                Helper.Input("Пароль: ", out user.Password);
+
+                switch (Helper.isValidAuthenticationFromFile(filePath, user))
+                {
+                    case -1:
+                        Console.Write("\n\n\nНЕТ ФАЙЛА С ДАННЫМИ");
+                        fExit = true;
+                        break;
+
+                    case 0:
+                        Console.Write($"Логин или Пароль не совпадают, повторите попытку ещё раз\n(кол-во оставшихся попыток {Counter})\n\n");
+
+                        if (Counter == 0)
+                        {
+                            Console.WriteLine("\n\n\nЛИМИТ ПОПЫТОК ИЗЧЕРПАН");
+                        }
+                        break;
+
+                    case 1:
+                        Console.Write("\n\n\nВЫ УСПЕШНО АВТОРИЗОВАЛИСЬ");
+                        fExit = true;
+                        break;
+                }
+
+                if (fExit)
+                {
+                    break;
+                }
+
+            } while (Counter > 0);
+            
 
             Console.WriteLine("\n\n\n" + "ДЛЯ ВЫХОДА ИЗ ЗАДАНИЯ НАЖМИТЕ ЛЮБУЮ КНОПКУ");
             Console.ReadKey();
@@ -247,7 +303,24 @@ namespace Lesson4
             Console.WriteLine("*б) Добавить конструктор и методы, которые загружают данные из файла и записывают данные в файл.");
             Console.WriteLine("**в) Обработать возможные исключительные ситуации при работе с файлами.\n");
 
+            Console.WriteLine("a)");
+            Console.WriteLine("Создадим масив [3,3] заполненый случайными числами из диапазона (0;10):");
+            Array2DClass arr2D = new Array2DClass(3, 3, 0, 10);
+            arr2D.PrintArray();
+            Console.WriteLine();
 
+            Console.WriteLine($"Сумма всех элементов массива: {arr2D.Sum()}");
+            Console.WriteLine($"Сумма элементов массива больше элемента [1,2]: {arr2D.SumOfMoreThenElement(1, 2)}\n");
+
+            Console.WriteLine($"[Свойство] Минимальный элемент массива: {arr2D.MinValue}");
+            Console.WriteLine($"[Свойство] Максимальный элемент массива: {arr2D.MaxValue}");
+
+            int i, j;
+            arr2D.GetMaxElementNumber(out i, out j);
+            Console.WriteLine($"[Метод] Максимальный элемент массива: [{i},{j}]\n");
+
+            Console.WriteLine("б) нет");
+            Console.WriteLine("в) нет");
 
             Console.WriteLine("\n\n\n" + "ДЛЯ ВЫХОДА ИЗ ЗАДАНИЯ НАЖМИТЕ ЛЮБУЮ КНОПКУ");
             Console.ReadKey();

@@ -22,14 +22,33 @@ namespace HomeWorkArrayClassLib
             this.arr = arr;
         }
 
-        public ArrayClassLib(int arraySize, int arrayStartVal, int arrayStep)
+        /// <summary>
+        /// Конструктор класса: заполняет массив значениями в зависимости от режима mode
+        /// </summary>
+        /// <param name="arraySize"></param>
+        /// <param name="Val1">При mode = 0 - начальное значения заполнения; при mode = 1 - минимальное значение случайного заполнения</param>
+        /// <param name="Val2">При mode = 0 - шаг заполнения; при mode = 1 - максимальное значение случайного заполнения</param>
+        /// <param name="mode">Режим работы конструктора: 0 - заполнение массива от заданного начального значения с заданным шагом
+        ///                                               1 - заполнение случайными числами в заданном диапазоне</param>
+        public ArrayClassLib(int arraySize, int Val1, int Val2, int mode)
         {
             this.arr = new int[arraySize];
 
-            arr[0] = arrayStartVal;
-            for (int i = 1; i < arr.Length; i++)
+            if (mode == 0)
             {
-                arr[i] = arr[i-1] + arrayStep;
+                arr[0] = Val1;
+                for (int i = 1; i < arr.Length; i++)
+                {
+                    arr[i] = arr[i - 1] + Val2;
+                }
+            }
+            else if (mode == 1)
+            {
+                Random r = new Random();
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    arr[i] = r.Next(Val1, Val2);
+                }
             }
         }
 
@@ -68,7 +87,7 @@ namespace HomeWorkArrayClassLib
             {
 
                 int sum = 0;
-                for(int i = 0; i < arr.Length; i++)
+                for (int i = 0; i < arr.Length; i++)
                 {
                     sum += arr[i];
                 }
@@ -81,7 +100,20 @@ namespace HomeWorkArrayClassLib
         {
             get
             {
-                return 0;
+                int MaxVal = 0, Counter = 0;
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (arr[i] > MaxVal)
+                    {
+                        MaxVal = arr[i];
+                        Counter = 1;
+                    }
+                    else if (arr[i] == MaxVal)
+                    {
+                        Counter++;
+                    }
+                }
+                return Counter;
             }
         }
         #endregion
@@ -157,11 +189,65 @@ namespace HomeWorkArrayClassLib
         }
 
         /// <summary>
+        /// Получение статистики по кол-ву вхождений чисел в массив
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<int, int> GetStatistics()
+        {
+            Dictionary<int, int> Statistics = new Dictionary<int, int>();
+            int[] arrSort = Sort();
+            int lastVal = 0;
+            int counter = 1;
+            int key = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (i == 0)
+                {
+                    Statistics.Add(key: arrSort[i], value: counter);
+                    key = arrSort[i];
+                }
+                else
+                {
+                    if (lastVal == arrSort[i])
+                    {
+                        counter++;
+                        Statistics[key] = counter;
+                    }
+                    else
+                    {
+                        counter = 1;
+                        key = arrSort[i];
+                        Statistics.Add(key: arrSort[i], value: counter);
+                    }
+                }
+
+                lastVal = arrSort[i];
+            }
+
+            return Statistics;
+        }
+
+        /// <summary>
+        /// Сортировка массива
+        /// </summary>
+        /// <returns></returns>
+        public int[] Sort()
+        {
+            int[] arrSort = new int[arr.Length];
+
+            arr.CopyTo(arrSort, 0);
+            Array.Sort(arrSort);
+
+            return arrSort;
+        }
+
+        /// <summary>
         /// Инверсия массива
         /// </summary>
         /// <returns></returns>
         public int[] Inverse()
-        {         
+        {
             return Multi(-1);
         }
 
