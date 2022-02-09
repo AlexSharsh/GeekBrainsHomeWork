@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 using HomeWorkAccountStruct;
 
 namespace HomeWorkHelper
@@ -139,8 +140,8 @@ namespace HomeWorkHelper
             string file = sr.ReadToEnd();
             sr.Close();
 
-            bool fLogin = StringCheck(file, "Login:", user.Login);
-            bool fPassword = StringCheck(file, "Password:", user.Password);
+            bool fLogin = CheckPattern(file, "Login:", user.Login);
+            bool fPassword = CheckPattern(file, "Password:", user.Password);
 
             if (fLogin & fPassword)
                 return 1;
@@ -148,7 +149,14 @@ namespace HomeWorkHelper
             return 0;
         }
 
-        private static bool StringCheck(string sourceStr, string preStr, string searchStr)
+        /// <summary>
+        /// Проверка паттерна
+        /// </summary>
+        /// <param name="sourceStr">Исходная строка</param>
+        /// <param name="preStr">Паттерн поиска</param>
+        /// <param name="searchStr">Искомая строка</param>
+        /// <returns></returns>
+        private static bool CheckPattern(string sourceStr, string preStr, string searchStr)
         {
             int i;
             int idx = sourceStr.IndexOf(preStr);
@@ -189,6 +197,45 @@ namespace HomeWorkHelper
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Проверка логина на соответсвие паттерну: A-Z a-z 0-9 и первый символ не цифра
+        /// </summary>
+        /// <param name="login">Логин</param>
+        /// <returns>false/true - не соответствует/соответствует</returns>
+        public static bool CheckLogin(string login)
+        {
+            if((2 <= login.Length) && (login.Length <= 10))
+            {
+                if (!(('0' <= login[0]) & (login[0] <= '9')))
+                {
+                    for (int i = 0; i < login.Length; i++)
+                    {
+                        if(!((('0' <= login[i]) & (login[i] <= '9')) || (('A' <= login[0]) & (login[0] <= 'Z')) || (('a' <= login[0]) & (login[0] <= 'z'))))
+                        {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Проверка логина на соответсвие паттерну: A-Z a-z 0-9 и первый символ не цифра
+        /// </summary>
+        /// <param name="login">Логин</param>
+        /// <returns>false/true - не соответствует/соответствует</returns>
+        public static bool CheckLoginPattern(string login)
+        {
+            string pattern = "^[A-Za-z]{1}[0-9A-Za-z]{1,9}$";
+            Regex regex = new Regex(pattern);
+
+            return regex.IsMatch(login);
         }
 
         /// <summary>
@@ -318,6 +365,27 @@ namespace HomeWorkHelper
             }
         }
 
+        public static void InputPupil(String outStr, out string str)
+        {
+            Regex regex = new Regex(@"^[А-Яа-я]{1,20}\s[А-Яа-я]{1,15}\s[0-5]{1}\s[0-5]{1}\s[0-5]{1}$");
+
+            Console.Write(outStr);
+
+            while (true)
+            {
+                str = Console.ReadLine();
+
+                if (regex.IsMatch(str))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Введенные данные не соответсвуют формату, повторите ввод");
+                }
+            }
+        }
+
         /// <summary>
         /// Запрос на ввод числа
         /// </summary>
@@ -327,6 +395,36 @@ namespace HomeWorkHelper
         {
             Console.Write(outStr);
             str = Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Запрос на ввод символа
+        /// </summary>
+        /// <param name="outStr">Информационная строка</param>
+        /// <param name="num">Указаетль на переменную</param>
+        public static void Input(String outStr, out char ch)
+        {
+            string input;
+            string pattern = "^[A-Za-zА-Яа-я]{1}$";
+            Regex regex = new Regex(pattern);
+
+
+            Console.Write(outStr);
+
+            while(true)
+            {
+                input = Console.ReadLine();
+                if (!regex.IsMatch(input))
+                {
+                    Console.WriteLine("Введен некорректный символ, повторите ввод");
+                }
+                else
+                {
+                    break;
+                }
+            }
+            
+            ch = input[0];
         }
 
         /// <summary>
@@ -393,6 +491,56 @@ namespace HomeWorkHelper
         }
 
         /// <summary>
+        /// Преобразование строки в массив слов
+        /// </summary>
+        /// <param name="str">Строка</param>
+        /// <returns>Массив слов</returns>
+        public static string[] StringToWordsArray(string str)
+        {
+            char[] separators = { ' ', '.', ',', ':', ';', '!', '?' };
+            string[] words = str.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+            return words;
+        }
+
+        /// <summary>
+        /// Является ли одна строка перестановкой другой
+        /// </summary>
+        /// <param name="str1">Строка 1</param>
+        /// <param name="str2">Строка 2</param>
+        /// <returns></returns>
+        public static bool IsPermutationOfLetters(string str1, string str2)
+        {
+            if(str1.Length == str2.Length)
+            {
+                StringBuilder sb = new StringBuilder(str1);
+
+                int j;
+                for (int i = 0; i < str1.Length; i++)
+                {
+                    for (j = 0; j < str2.Length; j++)
+                    {
+                        if(str1[i] == str2[j])
+                        {
+                            sb.Remove(0, 1);
+                            break;
+                        }
+                    }
+
+                    if (j == str2.Length)
+                        return false;
+                }
+
+                if(sb.Length == 0)
+                {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+
+        /// <summary>
         /// Рекурсивный вывода чисел в диапазоне от Head до Tail
         /// </summary>
         /// <param name="Head">Начало диапазона</param>
@@ -438,13 +586,38 @@ namespace HomeWorkHelper
         /// <summary>
         /// Печать коллекции
         /// </summary>
-        /// <param name="statistics"></param>
-        public static void PrintDictionary(Dictionary<int, int> statistics)
+        /// <param name="dict">Коллекция</param>
+        public static void PrintDictionary(Dictionary<int, int> dict)
         {
             Console.WriteLine("Значение:\tКол-во вхождений:");
-            foreach (KeyValuePair<int, int> i in statistics)
+            foreach (KeyValuePair<int, int> i in dict)
             {
                 Console.WriteLine($"\t{i.Key}\t\t\t{i.Value}");
+            }
+        }
+
+        /// <summary>
+        /// Печать коллекции
+        /// </summary>
+        /// <param name="dict">Коллекция</param>
+        public static void PrintDictionary(Dictionary<string, int> dict)
+        {
+            Console.WriteLine("Значение:\tКол-во вхождений:");
+            foreach (KeyValuePair<string, int> i in dict)
+            {
+                Console.WriteLine($"\t{i.Key}\t\t\t{i.Value}");
+            }
+        }
+
+        /// <summary>
+        /// Печать коллекции
+        /// </summary>
+        /// <param name="dict">Коллекция</param>
+        public static void PrintDictionary(Dictionary<int, string> dict)
+        {
+            foreach (KeyValuePair<int, string> i in dict)
+            {
+                Console.WriteLine($"{i.Value}");
             }
         }
 
@@ -490,6 +663,63 @@ namespace HomeWorkHelper
             }
 
             return counterPairs;
+        }
+
+        public static void PrintAverageScore(Dictionary<int, string> pupils)
+        {
+            Dictionary<int, string> Score = new Dictionary<int, string>();
+            char[] separators = { ' ', '.', ',', ':', ';', '!', '?' };
+            int[,] score = new int[pupils.Count, 2];
+
+            foreach (KeyValuePair<int, string> i in pupils)
+            {
+                int grade1 = i.Value[i.Value.Length - 1] - 0x30;
+                int grade2 = i.Value[i.Value.Length - 3] - 0x30;
+                int grade3 = i.Value[i.Value.Length - 5] - 0x30;
+
+                score[i.Key, 0] = i.Key;
+                score[i.Key, 1] = (grade1 + grade2 + grade3) / 3;
+            }
+
+            int min = score[0, 1];
+            for(int i = 0; i < pupils.Count; i++)
+            {
+                if(min > score[i, 1])
+                {
+                    min = score[i, 1];
+                }
+            }
+
+            int counter = 0;
+            int realMin = min;
+            for ( ; ; min++)
+            {
+                if (min > 5)
+                    break;
+
+                foreach (KeyValuePair<int, string> j in pupils)
+                {
+                    if (counter >= 3)
+                    {
+                        if (realMin != min)
+                        {
+                            return;
+                        }
+                    }
+
+                    if (min == score[j.Key, 1])
+                    {
+                        string[] words = j.Value.Split(separators);
+                        Console.WriteLine($"{words[0]} {words[1]} {score[j.Key, 1]}");
+                        counter++;
+
+                        if(counter == 3)
+                        {
+                            realMin = min;
+                        }
+                    }
+                }
+            }
         }
     }
 }

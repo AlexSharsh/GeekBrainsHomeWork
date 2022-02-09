@@ -8,6 +8,7 @@ using Lesson1;
 using Lesson2;
 using Lesson3;
 using Lesson4;
+using Lesson5;
 
 
 namespace HomeWorkMain
@@ -16,8 +17,8 @@ namespace HomeWorkMain
     {
         public static int GetHomeWork()
         {
-            int hw = 0;
-            int hwAccess = 4;
+            int hw = -1;
+            int hwAccess = 5;
 
             Helper.PrintStudentInfo();
 
@@ -27,12 +28,16 @@ namespace HomeWorkMain
             Console.WriteLine("[2]. Домашняя работа 2 (проверена преподавателем)");
             Console.WriteLine("[3]. Домашняя работа 3");
             Console.WriteLine("[4]. Домашняя работа 4");
+            Console.WriteLine("[5]. Домашняя работа 5");
 
             Console.WriteLine("\n\nВведите номер домашней работы: ");
 
             while (true)
             {
-                hw = int.Parse(Console.ReadLine());
+                if(!int.TryParse(Console.ReadLine(), out hw))
+                {
+                    hw = -1;
+                }
 
                 if ((0 <= hw) && (hw <= hwAccess))
                 {
@@ -76,6 +81,10 @@ namespace HomeWorkMain
 
                     case 4:
                         HomeWork4.Run();
+                        break;
+
+                    case 5:
+                        HomeWork5.Run();
                         break;
 
                     default:
