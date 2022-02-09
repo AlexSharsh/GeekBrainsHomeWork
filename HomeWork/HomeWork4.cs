@@ -50,7 +50,7 @@ namespace Lesson4
 
         private static int GetTasksMenu()
         {
-            int hw = 0;
+            int hw = -1;
             int taskAccess = 5;
 
             Console.WriteLine("СПИСОК ЗАДАНИЙ:");
@@ -64,7 +64,10 @@ namespace Lesson4
 
             while (true)
             {
-                hw = int.Parse(Console.ReadLine());
+                if (!int.TryParse(Console.ReadLine(), out hw))
+                {
+                    hw = -1;
+                }
 
                 if ((0 <= hw) && (hw <= taskAccess))
                 {
