@@ -27,7 +27,7 @@ namespace HomeWorkMain
             Console.WriteLine("[0]. Выход из приложения");
             Console.WriteLine("[1]. Домашняя работа 1 (проверена преподавателем)");
             Console.WriteLine("[2]. Домашняя работа 2 (проверена преподавателем)");
-            Console.WriteLine("[3]. Домашняя работа 3");
+            Console.WriteLine("[3]. Домашняя работа 3 (проверена преподавателем)");
             Console.WriteLine("[4]. Домашняя работа 4");
             Console.WriteLine("[5]. Домашняя работа 5");
             Console.WriteLine("[6]. Домашняя работа 6");
