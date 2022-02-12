@@ -57,6 +57,7 @@
     <Compile Include="HomeWork2.cs" />
     <Compile Include="HomeWork4.cs" />
     <Compile Include="HomeWork5.cs" />
+    <Compile Include="HomeWork6.cs" />
     <Compile Include="HomeWorkMain.cs" />
     <Compile Include="HomeWork3.cs" />
     <Compile Include="Message.cs" />
@@ -66,6 +67,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="StaticClass.cs" />
+    <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
