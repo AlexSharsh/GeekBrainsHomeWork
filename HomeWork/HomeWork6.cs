@@ -366,7 +366,6 @@ namespace Lesson6
 
             Console.WriteLine();
             Console.WriteLine(DateTime.Now - dt);
-            Console.ReadKey();
 
             Console.WriteLine("\n\n\n" + "ДЛЯ ВЫХОДА ИЗ ЗАДАНИЯ НАЖМИТЕ ЛЮБУЮ КНОПКУ");
             Console.ReadKey();
