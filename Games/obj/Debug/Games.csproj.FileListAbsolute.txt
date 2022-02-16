@@ -1,0 +1,13 @@
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Games.csproj.AssemblyReference.cache
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Games.csproj.SuggestedBindingRedirects.cache
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.Doubler.resources
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.Main.resources
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Games.csproj.GenerateResource.cache
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Games.csproj.CoreCompileInputs.cache
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.GuessNumber.resources
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\bin\Debug\Games.exe.config
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\bin\Debug\Games.exe
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\bin\Debug\Games.pdb
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Games.Properties.Resources.resources
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Games.exe
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Games.pdb
