@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWork", "HomeWork\HomeWork.csproj", "{C4C43CD0-088D-47D5-8628-3030D8E36B42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games", "Games\Games.csproj", "{B0A14AEB-4E35-4AB3-B5CD-DB319F025E4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{C4C43CD0-088D-47D5-8628-3030D8E36B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4C43CD0-088D-47D5-8628-3030D8E36B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4C43CD0-088D-47D5-8628-3030D8E36B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A14AEB-4E35-4AB3-B5CD-DB319F025E4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A14AEB-4E35-4AB3-B5CD-DB319F025E4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A14AEB-4E35-4AB3-B5CD-DB319F025E4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A14AEB-4E35-4AB3-B5CD-DB319F025E4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {833D0DE0-76E1-4908-9EC0-B38DD29B249F}
 	EndGlobalSection
 EndGlobal

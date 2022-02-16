@@ -1,0 +1,11 @@
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\bin\Debug\Doubler.exe.config
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\bin\Debug\Doubler.exe
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\bin\Debug\Doubler.pdb
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.csproj.AssemblyReference.cache
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.csproj.SuggestedBindingRedirects.cache
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.Form1.resources
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.Properties.Resources.resources
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.csproj.GenerateResource.cache
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.csproj.CoreCompileInputs.cache
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.exe
+C:\Work\Programming\GeekBrains\GeekBrainsHomeWork\Doubler\obj\Debug\Doubler.pdb
